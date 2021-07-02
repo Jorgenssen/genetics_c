@@ -10,6 +10,7 @@
 void generate_random_string(char *dest);
 void mutate_random_gen(char *dest);
 size_t generate_random_gen_index();
+char get_random_char();
 
 int main() {
   srand(getpid());
@@ -41,16 +42,20 @@ int main() {
 void generate_random_string(char *dest) {
   int l = GENOM_LENGTH - 1;
   while (l --> 0) {
-    *dest++ = CHARSET[generate_random_gen_index()];
+    *dest++ = get_random_char();
   }
   *dest = '\0';
 }
 
 void mutate_random_gen(char *dest) {
   size_t mutate_index = (double) rand() / RAND_MAX * (GENOM_LENGTH - 1);
-  dest[mutate_index] = CHARSET[generate_random_gen_index()];
+  dest[mutate_index] = get_random_char();
 }
 
 size_t generate_random_gen_index() {
   return (double) rand() / RAND_MAX * (sizeof CHARSET - 1);
+}
+
+char get_random_char() {
+  return CHARSET[generate_random_gen_index()];
 }
