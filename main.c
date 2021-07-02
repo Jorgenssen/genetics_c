@@ -5,7 +5,7 @@
 
 #define CHARSET "abcdefghijklnmopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 #define OFFSPRINGS_COUNT 10
-#define GENOM_LENGTH 7
+#define GENOM_LENGTH 27
 
 void generate_random_string(char *dest);
 void mutate_random_gen(char *dest);
@@ -32,10 +32,13 @@ int main() {
     printf("Population %i\n", i + 1);
     printf("Ancestor genom: %s\n", init_genom);
     printf("Previous genom: %s\n", pre_genom);
-    printf("Actual genom: %s\n", next_genom);
+    printf("Actual genom  : %s\n", next_genom);
     printf("------------\n");
     memcpy(pre_genom, next_genom, GENOM_LENGTH);
   }
+  printf("Mutation result\n");
+  printf("Initial genom : %s\n", init_genom);
+  printf("Final genom   : %s\n", next_genom);
   return 0;
 }
 
