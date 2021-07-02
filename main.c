@@ -35,6 +35,7 @@ int main() {
     printf("------------\n");
     memcpy(pre_genom, next_genom, GENOM_LENGTH);
   }
+  return 0;
 }
 
 void generate_random_string(char *dest) {
